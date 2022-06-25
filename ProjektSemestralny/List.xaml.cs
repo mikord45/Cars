@@ -26,7 +26,8 @@ namespace ProjektSemestralny
         {
             InitializeComponent();
             var data1 = LoadCollectionData();
-            CarGrid.ItemsSource = data1;
+            //CarGrid.ItemsSource = data1;
+            this.DataContext = data1;
         }
         private List<Car> LoadCollectionData()
         {
