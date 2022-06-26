@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Edit">
 
-    <Grid Height="450" Margin="10,10,10,10" HorizontalAlignment="Stretch" OpacityMask="White" Background="White">
+    <Grid Height="450" Margin="6,10,14,-10" HorizontalAlignment="Stretch" OpacityMask="White" Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -24,6 +24,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Label Content="Edytuj Samochód" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" RenderTransformOrigin="0.602,-1.948" FontSize="20" FontWeight="Bold" FontFamily="Caladea"/>
         <TextBlock Grid.Row="1">
@@ -45,6 +46,7 @@
         <TextBox x:Name="InputYear" HorizontalAlignment="Left" Margin="166,0,0,0" Grid.Row="8" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" PreviewTextInput="NumberValidationTextBox"/>
         <Label Content="Id" HorizontalAlignment="Left" Margin="30,0,0,0" Grid.Row="2" VerticalAlignment="Center"/>
         <ComboBox x:Name="SelectId" HorizontalAlignment="Left" Margin="166,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="120" RenderTransformOrigin="0.491,1.081" ItemsSource="{Binding}"/>
-        <Button x:Name="btnConfirm" Content="Zapisz" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="9" VerticalAlignment="Center"/>
+        <Button x:Name="btnConfirm" Click="btnConfirm_Click" Content="Zapisz" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="9" VerticalAlignment="Center"/>
+        <Label x:Name="labelError" Content="" HorizontalAlignment="Center" Margin="0" Grid.Row="10" VerticalAlignment="Center" RenderTransformOrigin="1.3,0.382"/>
     </Grid>
 </Page>

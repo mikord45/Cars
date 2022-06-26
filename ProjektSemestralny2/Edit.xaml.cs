@@ -97,5 +97,32 @@ namespace ProjektSemestralny
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectId != null && InputCarName.Text != "" && InputMileage.Text != "" && InputYear.Text != "" && SelectEngine.SelectedValue != null && SelectColor.SelectedValue != null && SelectState.SelectedValue != null)
+            {
+                using (var context = new MotoryzacjaEntities2())
+                {
+                    int properId = Int32.Parse(SelectId.SelectedValue.ToString());
+                    Cars toEdit = (from car in context.Cars
+                                 where car.Id == properId
+                                 select car).First();
+
+                    toEdit.CarName = InputCarName.Text;
+                    toEdit.Engine = Int32.Parse(SelectEngine.SelectedValue.ToString());
+                    toEdit.Color = Int32.Parse(SelectColor.SelectedValue.ToString());
+                    toEdit.State = Int32.Parse(SelectState.SelectedValue.ToString());
+                    toEdit.CarMileage = Int32.Parse(InputMileage.Text);
+                    toEdit.Year = Int32.Parse(InputYear.Text);
+                    context.SaveChanges();
+                }
+                this.NavigationService.Navigate((new List()));
+            }
+            else
+            {
+                labelError.Content = "Musisz uzupełnić wszystkie pola";
+            }
+        }
     }
 }

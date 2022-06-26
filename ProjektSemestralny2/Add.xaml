@@ -8,11 +8,12 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Add">
 
-    <Grid Height="450" Margin="10,10,10,10" HorizontalAlignment="Stretch" OpacityMask="White" Background="White">
+    <Grid Height="450" Margin="10,10,10,10" HorizontalAlignment="Stretch" OpacityMask="White" Background="White" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
@@ -42,6 +43,7 @@
         <ComboBox x:Name="SelectState" HorizontalAlignment="Left" Margin="166,0,0,0" Grid.Row="5" VerticalAlignment="Center" Width="120" ItemsSource="{Binding}"/>
         <TextBox x:Name="InputMileage" HorizontalAlignment="Left" Margin="166,8,0,0" Grid.Row="6" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="InputYear" HorizontalAlignment="Left" Margin="166,0,0,0" Grid.Row="7" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" PreviewTextInput="NumberValidationTextBox"/>
-        <Button x:Name="btnConfirm" Content="Dodaj" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="8" VerticalAlignment="Center" RenderTransformOrigin="-0.757,0.401" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btnConfirm" Click="btnConfirm_Click" Content="Dodaj" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="8" VerticalAlignment="Center" RenderTransformOrigin="-0.757,0.401" HorizontalContentAlignment="Center"/>
+        <Label x:Name="labelError" Content="" HorizontalAlignment="Center" Margin="0" Grid.Row="9" VerticalAlignment="Center" RenderTransformOrigin="1.3,0.382"/>
     </Grid>
 </Page>
