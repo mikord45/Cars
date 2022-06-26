@@ -33,7 +33,7 @@
         </TextBlock>
         <Label Content="Nazwa samochodu" HorizontalAlignment="Left" Margin="30,5,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.36,-1.153" VerticalContentAlignment="Center"/>
         <TextBox x:Name="InputCarName" HorizontalAlignment="Left" Margin="166,9,0,0" Grid.Row="2" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="SIlnik" HorizontalAlignment="Left" Margin="30,4,0,0" Grid.Row="3" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <Label Content="Silnik" HorizontalAlignment="Left" Margin="30,4,0,0" Grid.Row="3" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
         <Label Content="Kolor" HorizontalAlignment="Left" Margin="30,0,0,0" Grid.Row="4" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
         <Label Content="Stan" HorizontalAlignment="Left" Margin="30,4,0,0" Grid.Row="5" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
         <Label Content="Przebieg" HorizontalAlignment="Left" Margin="30,4,0,0" Grid.Row="6" VerticalAlignment="Top" RenderTransformOrigin="1.343,0.422"/>

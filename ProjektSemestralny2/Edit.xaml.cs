@@ -100,7 +100,7 @@ namespace ProjektSemestralny
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            if (SelectId != null && InputCarName.Text != "" && InputMileage.Text != "" && InputYear.Text != "" && SelectEngine.SelectedValue != null && SelectColor.SelectedValue != null && SelectState.SelectedValue != null)
+            if (SelectId.SelectedValue != null && InputCarName.Text != "" && InputMileage.Text != "" && InputYear.Text != "" && SelectEngine.SelectedValue != null && SelectColor.SelectedValue != null && SelectState.SelectedValue != null)
             {
                 using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
                 {
