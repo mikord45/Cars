@@ -31,179 +31,18 @@ namespace ProjektSemestralny
         }
         private List<Car> LoadCollectionData()
         {
-            List<Car> cars = new List<Car>();
-            cars.Add(new Car()
+            //List<Car> cars = new List<Car>();
+            using (var context = new MotoryzacjaEntities2())
             {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
-            cars.Add(new Car()
-            {
-                Id = 101,
-                CarName = "Jeep",
-                Engine = "200KM",
-                Color = "red",
-                State = "nowy",
-                CarMileage = 2342342,
-                Year = 2009
-            });
+                var cars = from car in context.Cars
+                           join engine in context.Engines on car.Engine equals engine.Id
+                           join color in context.Colors on car.Color equals color.Id
+                           join state in context.States on car.State equals state.Id
+                           select new Car(){Id = car.Id, CarName = car.CarName, Engine = engine.Name, Color = color.Name, State = state.Name, CarMileage = car.CarMileage, Year = car.Year };
+                //var test = (List<Car>)cars;
+                return cars.ToList();
+            }
 
-            return cars;
         }
 
     }
