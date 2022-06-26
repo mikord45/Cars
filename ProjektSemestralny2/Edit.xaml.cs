@@ -28,19 +28,19 @@ namespace ProjektSemestralny
             InputCarName.Text = "";
             InputMileage.Text = "";
             InputYear.Text = "";
-            var data1 = LoadEngines();
+            List<Engines> data1 = LoadEngines();
             SelectEngine.DisplayMemberPath = "Name";
             SelectEngine.SelectedValuePath = "Id";
             SelectEngine.DataContext = data1;
-            var data2 = LoadColors();
+            List<Colors> data2 = LoadColors();
             SelectColor.DisplayMemberPath = "Name";
             SelectColor.SelectedValuePath = "Id";
             SelectColor.DataContext = data2;
-            var data3 = LoadStates();
+            List<States> data3 = LoadStates();
             SelectState.DisplayMemberPath = "Name";
             SelectState.SelectedValuePath = "Id";
             SelectState.DataContext = data3;
-            var data4 = LoadIds();
+            List<Id> data4 = LoadIds();
             SelectId.DisplayMemberPath = "Name";
             SelectId.SelectedValuePath = "ID";
             SelectId.DataContext = data4;
@@ -48,18 +48,18 @@ namespace ProjektSemestralny
 
         private List<Engines> LoadEngines()
         {
-            using (var context = new MotoryzacjaEntities2())
+            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
             {
-                var engines = context.Engines.ToList();
+                List<Engines> engines = context.Engines.ToList();
                 return engines;
             }
         }
 
         private List<Colors> LoadColors()
         {
-            using (var context = new MotoryzacjaEntities2())
+            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
             {
-                var colors = context.Colors.ToList();
+                List<Colors> colors = context.Colors.ToList();
                 return colors;
             }
 
@@ -67,20 +67,20 @@ namespace ProjektSemestralny
 
         private List<States> LoadStates()
         {
-            using (var context = new MotoryzacjaEntities2())
+            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
             {
-                var states = context.States.ToList();
+                List<States> states = context.States.ToList();
                 return states;
             }
         }
 
         private List<Id> LoadIds()
         {
-            using (var context = new MotoryzacjaEntities2())
+            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
             {
                 List<Id> ids = new List<Id>();
-                var allCars = context.Cars.ToList();
-                foreach (var car in allCars){
+                List<Cars> allCars = context.Cars.ToList();
+                foreach (Cars car in allCars){
                     Id currentId = new Id()
                     {
                         ID = car.Id,
@@ -102,7 +102,7 @@ namespace ProjektSemestralny
         {
             if (SelectId != null && InputCarName.Text != "" && InputMileage.Text != "" && InputYear.Text != "" && SelectEngine.SelectedValue != null && SelectColor.SelectedValue != null && SelectState.SelectedValue != null)
             {
-                using (var context = new MotoryzacjaEntities2())
+                using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
                 {
                     int properId = Int32.Parse(SelectId.SelectedValue.ToString());
                     Cars toEdit = (from car in context.Cars
