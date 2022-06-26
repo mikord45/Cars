@@ -46,82 +46,50 @@ namespace ProjektSemestralny
             SelectId.DataContext = data4;
         }
 
-        private List<Engine> LoadEngines()
+        private List<Engines> LoadEngines()
         {
-            List<Engine> engines = new List<Engine>();
-            engines.Add(new Engine()
+            using (var context = new MotoryzacjaEntities2())
             {
-                Id = 101,
-                Name = "Engine1"
-            });
-            engines.Add(new Engine()
-            {
-                Id = 102,
-                Name = "Engine2"
-            });
-
-            return engines;
+                var engines = context.Engines.ToList();
+                return engines;
+            }
         }
 
-        private List<Color> LoadColors()
+        private List<Colors> LoadColors()
         {
-            List<Color> colors = new List<Color>();
-            colors.Add(new Color()
+            using (var context = new MotoryzacjaEntities2())
             {
-                Id = 201,
-                Name = "Color1"
-            });
-            colors.Add(new Color()
-            {
-                Id = 202,
-                Name = "Color2"
-            });
+                var colors = context.Colors.ToList();
+                return colors;
+            }
 
-            return colors;
         }
 
-        private List<State> LoadStates()
+        private List<States> LoadStates()
         {
-            List<State> states = new List<State>();
-            states.Add(new State()
+            using (var context = new MotoryzacjaEntities2())
             {
-                Id = 301,
-                Name = "Nowy"
-            });
-            states.Add(new State()
-            {
-                Id = 302,
-                Name = "Używany"
-            });
-            states.Add(new State()
-            {
-                Id = 303,
-                Name = "Uszkodzony"
-            });
-
-            return states;
+                var states = context.States.ToList();
+                return states;
+            }
         }
 
         private List<Id> LoadIds()
         {
-            List<Id> ids = new List<Id>();
-            ids.Add(new Id()
+            using (var context = new MotoryzacjaEntities2())
             {
-                ID = 401,
-                Name = "401"
-            });
-            ids.Add(new Id()
-            {
-                ID = 402,
-                Name = "402"
-            });
-            ids.Add(new Id()
-            {
-                ID = 403,
-                Name = "403"
-            });
-
-            return ids;
+                List<Id> ids = new List<Id>();
+                var allCars = context.Cars.ToList();
+                foreach (var car in allCars){
+                    Id currentId = new Id()
+                    {
+                        ID = car.Id,
+                        Name = car.Id.ToString()
+                    };
+                    ids.Add(currentId);
+                }
+                return ids;
+            }
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)

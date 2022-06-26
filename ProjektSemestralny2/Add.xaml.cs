@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 
-
 namespace ProjektSemestralny
 {
     /// <summary>
@@ -42,60 +41,32 @@ namespace ProjektSemestralny
             SelectState.DataContext = data3;
         }
 
-        private List<Engine> LoadEngines()
+        private List<Engines> LoadEngines()
         {
-            List<Engine> engines = new List<Engine>();
-            engines.Add(new Engine()
+            using (var context = new MotoryzacjaEntities2())
             {
-                Id = 101,
-                Name = "Engine1"
-            });
-            engines.Add(new Engine()
-            {
-                Id = 102,
-                Name = "Engine2"
-            });
-
-            return engines;
+                var engines = context.Engines.ToList();
+                return engines;
+            }
         }
 
-        private List<Color> LoadColors()
+        private List<Colors> LoadColors()
         {
-            List<Color> colors = new List<Color>();
-            colors.Add(new Color()
+            using (var context = new MotoryzacjaEntities2())
             {
-                Id = 201,
-                Name = "Color1"
-            });
-            colors.Add(new Color()
-            {
-                Id = 202,
-                Name = "Color2"
-            });
+                var colors = context.Colors.ToList();
+                return colors;
+            }
 
-            return colors;
         }
 
-        private List<State> LoadStates()
+        private List<States> LoadStates()
         {
-            List<State> states = new List<State>();
-            states.Add(new State()
+            using (var context = new MotoryzacjaEntities2())
             {
-                Id = 301,
-                Name = "Nowy"
-            });
-            states.Add(new State()
-            {
-                Id = 302,
-                Name = "Używany"
-            });
-            states.Add(new State()
-            {
-                Id = 303,
-                Name = "Uszkodzony"
-            });
-
-            return states;
+                var states = context.States.ToList();
+                return states;
+            }
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
