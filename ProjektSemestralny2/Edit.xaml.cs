@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
-
+using ProjektSemestralny.Database;
 
 namespace ProjektSemestralny
 {
@@ -48,7 +48,7 @@ namespace ProjektSemestralny
 
         private List<Engines> LoadEngines()
         {
-            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
+            using (MotoryzacjaDBContext context = new MotoryzacjaDBContext())
             {
                 List<Engines> engines = context.Engines.ToList();
                 return engines;
@@ -57,7 +57,7 @@ namespace ProjektSemestralny
 
         private List<Colors> LoadColors()
         {
-            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
+            using (MotoryzacjaDBContext context = new MotoryzacjaDBContext())
             {
                 List<Colors> colors = context.Colors.ToList();
                 return colors;
@@ -67,7 +67,7 @@ namespace ProjektSemestralny
 
         private List<States> LoadStates()
         {
-            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
+            using (MotoryzacjaDBContext context = new MotoryzacjaDBContext())
             {
                 List<States> states = context.States.ToList();
                 return states;
@@ -76,7 +76,7 @@ namespace ProjektSemestralny
 
         private List<Id> LoadIds()
         {
-            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
+            using (MotoryzacjaDBContext context = new MotoryzacjaDBContext())
             {
                 List<Id> ids = new List<Id>();
                 List<Cars> allCars = context.Cars.ToList();
@@ -102,7 +102,7 @@ namespace ProjektSemestralny
         {
             if (SelectId.SelectedValue != null && InputCarName.Text != "" && InputMileage.Text != "" && InputYear.Text != "" && SelectEngine.SelectedValue != null && SelectColor.SelectedValue != null && SelectState.SelectedValue != null)
             {
-                using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
+                using (MotoryzacjaDBContext context = new MotoryzacjaDBContext())
                 {
                     int properId = Int32.Parse(SelectId.SelectedValue.ToString());
                     Cars toEdit = (from car in context.Cars

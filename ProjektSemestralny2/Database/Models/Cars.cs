@@ -12,6 +12,8 @@ namespace ProjektSemestralny
     using System;
     using System.Collections.Generic;
     
+
+
     public partial class Cars
     {
         public int Id { get; set; }
@@ -25,5 +27,6 @@ namespace ProjektSemestralny
         public virtual Colors Colors { get; set; }
         public virtual Engines Engines { get; set; }
         public virtual States States { get; set; }
+
     }
 }

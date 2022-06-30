@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using ProjektSemestralny.Database;
 
 namespace ProjektSemestralny
 {
@@ -47,7 +48,7 @@ namespace ProjektSemestralny
 
         private List<Engines> LoadEngines()
         {
-            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
+            using (MotoryzacjaDBContext context = new MotoryzacjaDBContext())
             {
                 List<Engines> engines = context.Engines.ToList();
                 return engines;
@@ -56,7 +57,7 @@ namespace ProjektSemestralny
 
         private List<Colors> LoadColors()
         {
-            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
+            using (MotoryzacjaDBContext context = new MotoryzacjaDBContext())
             {
                 List<Colors> colors = context.Colors.ToList();
                 return colors;
@@ -66,7 +67,7 @@ namespace ProjektSemestralny
 
         private List<States> LoadStates()
         {
-            using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
+            using (MotoryzacjaDBContext context = new MotoryzacjaDBContext())
             {
                 List<States> states = context.States.ToList();
                 return states;
@@ -83,7 +84,7 @@ namespace ProjektSemestralny
         {
             if(InputCarName.Text != "" && InputMileage.Text != "" && InputYear.Text != "" && SelectEngine.SelectedValue != null && SelectColor.SelectedValue != null && SelectState.SelectedValue != null)
             {
-                using (MotoryzacjaEntities2 context = new MotoryzacjaEntities2())
+                using (MotoryzacjaDBContext context = new MotoryzacjaDBContext())
                 {
                     Cars currentCar = new Cars()
                     {
